@@ -1,8 +1,13 @@
 console.log("Sanity Check: JS is working!");
 
 // var allBooks = [];
+var template;
+var $quoteslist;
+var allQuotes = [];
 
 $(document).ready(function(){
+
+  $quotesList = $('#quoteTarget');
 
 // your code
 //............testing I understand the wiring
@@ -23,6 +28,17 @@ $(document).ready(function(){
   }
 //................testing^
 
+//adding/listing quote
+  $.ajax({
+    method: 'POST',
+    url: '/api/quotes',
+    success: newQuoteSuccess,
+    error: newQuoteError
+  });
+
+  function handleQuote(json){
+
+  }
 
   // helper function to render all posts to view
   // note: we empty and re-render the collection each time our post data changes

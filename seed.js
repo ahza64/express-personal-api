@@ -50,3 +50,19 @@ var new_profile = [
    console.log("Created new profile", profile._id);
    proccess.exit();
  });
+
+
+/////////////////////////inspirational quotes
+
+var newQuotes = [
+  {
+    name: "Justin",
+    date: "",
+    quote: "Seeking justice, is just another name for revenge"
+  },
+  {
+    name: "Ghandi",
+    date: "",
+    quote: "an eye for an eye will leave the world blind"
+  }
+];

@@ -54,6 +54,28 @@ app.get('/', function homepage(req, res) {
    });
  });
 
+ app.get('/api/quotes', function findQuote(req, res){
+   db.Quote.find(function(err, quotetaco){
+     res.json(quotetaco);
+   });
+ });
+
+ app.post('/api/qutotes', function postQuote(req, res){
+   var newQuote = new db.Quotes({
+     name: req.body.name,
+     date: "",
+     quote: req.body.quote
+   });
+   newQuote.save(function(err, quote){
+     if (err){
+       return console.log("quote save error "+ err);
+     }else{
+       console.log(quote);
+       res.json(quote);
+     }
+   });
+ });
+
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
@@ -65,7 +87,9 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
       {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"}, // CHANGE ME
-      {method: "GET", path: "/api/currentCity", description: "Where I live"}
+      {method: "GET", path: "/api/currentCity", description: "Where I live"},
+      {method: "GET", path: "/api/quotes", description: "get all quotes"},
+      {method: "POST", path: "/api/quotes", description: "add a quote"}
     ]
   });
 });
