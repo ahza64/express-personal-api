@@ -7,15 +7,22 @@ var express = require('express'),
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 /************
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
  **********/
+
 
 // Serve static files from the `/public` directory:
 // i.e. `/images`, `/scripts`, `/styles`
@@ -34,19 +41,33 @@ app.get('/', function homepage(req, res) {
  * JSON API Endpoints
  */
 
+ app.get('/api/profile', function findProfile(req, res){
+   db.Profile.find(function(err, profile){
+     console.log(profile);
+     res.json(profile);
+   });
+ });
+
+ app.get('/api/currentCity', function findCityImIn(req, res){
+   db.City.find(function(err, citytaco){
+     res.json(citytaco);
+   });
+ });
+
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
+    woops_i_has_forgot_to_document_all_my_endpoints: false, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
     documentation_url: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
     base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"}, // CHANGE ME
+      {method: "GET", path: "/api/currentCity", description: "Where I live"}
     ]
-  })
+  });
 });
 
 /**********
