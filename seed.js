@@ -64,13 +64,20 @@ var newQuotes = [
     name: "Ghandi",
     //date: "",
     quote: "an eye for an eye will leave the world blind"
+  },
+  {
+    name: "Tyler Durden",
+    quote: "You're not your fucking Kakis"
   }
 ];
 
-db.Quotes.create(newQuotes, function(err, quote){
-  if (err){
-    return console.log("quotes data error " + err);
-  }
-  console.log("Created new quote", quote._id);
-  proccess.exit();
+db.Quotes.remove({}, function(err, removed){
+  console.log("removed all quotes db");
+  db.Quotes.create(newQuotes, function(err, quote){
+    if (err){
+      return console.log("quotes data error " + err);
+    }
+    console.log("Created new quote", quote._id);
+    proccess.exit();
+  });
 });

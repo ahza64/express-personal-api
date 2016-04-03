@@ -55,7 +55,7 @@ app.get('/', function homepage(req, res) {
  });
 
  app.get('/api/quotes', function findQuote(req, res){
-   db.Quote.find(function(err, quotetaco){
+   db.Quote.find().exec(function(err, quotetaco){
      res.json(quotetaco);
    });
  });

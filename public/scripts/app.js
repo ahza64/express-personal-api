@@ -2,7 +2,7 @@ console.log("Sanity Check: JS is working!");
 
 // var allBooks = [];
 var template;
-var $quoteslist;
+var $quotesList;
 var allQuotes = [];
 
 $(document).ready(function(){
@@ -38,7 +38,9 @@ $(document).ready(function(){
   });
 
   function handleQuotes(json){
+    console.log(json);
     allQuotes.unshift(json);
+    allQuotes = json;
     render();
   }
 
