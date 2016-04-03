@@ -25,10 +25,22 @@
           <h4><a href="/api">Read My API Documentation</a></h4>
           <div class="go">
           </div>
+          <!--adding quotes form-->
+          <form class="form-inline" id="newQuoteForm">
+            <div class="form-group">
+              <label for="title">Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label for="title">Quote</label>
+              <input type="text" class="form-control" name="quote" placeholder="Quote">
+            </div>
+            <button type="submit" class="btn btn-default">Create quote</button>
+          </form>
           <!--listing the quotes-->
-          <div id='quoteTarget'>
+          <div id='quotesTarget'>
               <script id='quotesTemplate' type="text/x-handlebars-template">
-                {{#each quote}}
+                {{#each quotes}}
                 <hr>
                 <p>
                   {{quote}}

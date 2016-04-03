@@ -43,7 +43,7 @@ var new_profile = [
   ]
   }
 ];
- db.Profile.create(new_profile, function(err, campsite){
+ db.Profile.create(new_profile, function(err, profile){
    if (err){
      return console.log("Error: " + err);
    }
@@ -57,12 +57,20 @@ var new_profile = [
 var newQuotes = [
   {
     name: "Justin",
-    date: "",
+    //date: "",
     quote: "Seeking justice, is just another name for revenge"
   },
   {
     name: "Ghandi",
-    date: "",
+    //date: "",
     quote: "an eye for an eye will leave the world blind"
   }
 ];
+
+db.Quotes.create(newQuotes, function(err, quote){
+  if (err){
+    return console.log("quotes data error " + err);
+  }
+  console.log("Created new quote", quote._id);
+  proccess.exit();
+});

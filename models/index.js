@@ -6,3 +6,4 @@ mongoose.connect( process.env.MONGOLAB_URI ||
 module.exports.Campsite = require("./campsite.js");
 module.exports.City = require("./currentCity.js");
 module.exports.Profile = require("./profile.js");
+module.exports.Quote = require("./quotes.js");

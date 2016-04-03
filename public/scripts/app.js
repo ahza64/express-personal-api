@@ -7,7 +7,10 @@ var allQuotes = [];
 
 $(document).ready(function(){
 
-  $quotesList = $('#quoteTarget');
+  $quotesList = $('#quotesTarget');
+  var source = $('#quotesTemplate').html();
+  template = Handlebars.compile(source);
+
 
 // your code
 //............testing I understand the wiring
@@ -26,18 +29,56 @@ $(document).ready(function(){
   function handleError(err){
     console.log(err);
   }
+
+  $.ajax({
+    method: 'GET',
+    url: '/api/quotes',
+    success: handleQuotes,
+    error: handleQuotesError
+  });
+
+  function handleQuotes(json){
+    allQuotes.unshift(json);
+    render();
+  }
+
+  function handleQuotesError(err){
+    console.log("handleQuotesError " + err);
+  }
 //................testing^
 
 //adding/listing quote
+$('#newQuoteForm').on('submit', function(e){
+  e.preventDefault();
+  console.log('new quote', $(this).serialize());
   $.ajax({
     method: 'POST',
     url: '/api/quotes',
+    data: $(this).serialize(),
     success: newQuoteSuccess,
     error: newQuoteError
   });
+});
 
-  function handleQuote(json){
+  function newQuoteSuccess(json){
+    //$('#newSongForm input').val('');
+    allQuotes.unshift(json);
+    render();
+  }
 
+  function newQuoteError(err){
+    console.log("newQuoteError " + err);
+  }
+
+  function render() {
+    // empty existing posts from view
+    $quotesList.empty();
+
+    // pass `allBooks` into the template function
+    var quotesHtml = template({ quotes: allQuotes });
+
+    // append html to the view
+    $quotesList.append(quotesHtml);
   }
 
   // helper function to render all posts to view

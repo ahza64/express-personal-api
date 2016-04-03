@@ -60,12 +60,8 @@ app.get('/', function homepage(req, res) {
    });
  });
 
- app.post('/api/qutotes', function postQuote(req, res){
-   var newQuote = new db.Quotes({
-     name: req.body.name,
-     date: "",
-     quote: req.body.quote
-   });
+ app.post('/api/quotes', function postQuote(req, res){
+   var newQuote = new db.Quote(req.body);
    newQuote.save(function(err, quote){
      if (err){
        return console.log("quote save error "+ err);
