@@ -22,7 +22,7 @@ $(document).ready(function(){
   });
 
   function handleProfile(json){
-    $('.go').append('<div>'+json[0].pets[1].name+'</div>');
+    $('.go').append('<image width="100" height="100" src='+json[0].github_profile_image+'>');
     console.log("ajax success, yay!", json[0]);
   }
 

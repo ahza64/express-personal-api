@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
 
 var quoteSchema = new Schema({
   name: String,
-  //date: String,
+  image: String,
   quote: String
 });
 

@@ -99,7 +99,7 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/currentCity", description: "Where I live"},
       {method: "GET", path: "/api/quotes", description: "get all quotes"},
       {method: "POST", path: "/api/quotes", description: "add a quote"},
-      {method: "PUT", path: "/api/quotes/:id", description: "update quote info"},
+      //{method: "PUT", path: "/api/quotes/:id", description: "update quote info"},
       {method: "DELETE", path: "/api/quotes/:id", description: "Delete a quote"}
     ]
   });

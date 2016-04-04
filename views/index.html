@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Blank</title>
+    <title>Justin's Personal API</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -21,7 +21,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
+          <h1>Justin's Personal API</h1>
           <h4><a href="/api">Read My API Documentation</a></h4>
           <div class="go">
           </div>
@@ -35,6 +35,10 @@
               <label for="title">Quote</label>
               <input type="text" class="form-control" name="quote" placeholder="Quote">
             </div>
+            <div class="form-group">
+              <label for="title">Image</label>
+              <input type="text" class="form-control" name="image" placeholder="Image Url">
+            </div>
             <button type="submit" class="btn btn-default">Create quote</button>
           </form>
           <!--listing the quotes-->
@@ -44,7 +48,8 @@
                 <hr>
                 <p>
                   {{quote}}
-                  by -{{name}}
+                   -{{name}}
+                  <image width="50" height="50" src="{{image}}" frameborder="0">
                 <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
                     <br> -->
                     <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete</button>

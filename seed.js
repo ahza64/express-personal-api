@@ -56,17 +56,23 @@ var new_profile = [
 
 var newQuotes = [
   {
+    name: "Osho",
+    image: "http://tapoban.com/wp-content/uploads/2011/07/osho.jpg",
+    quote: "If you love a flower, dont pick it up. Because if you pick it up it dies and it ceases to be what you love. So if you love a flower, let it be. Love is not about possession. Love is about appreciation."
+  },
+  {
     name: "Ghandi",
-    //date: "",
+    image: "http://images.indianexpress.com/2014/12/gandhi1.jpg",
     quote: "An eye for an eye will leave the world blind"
   },
   {
     name: "Justin",
-    //date: "",
+    image: "http://i.imgur.com/mgJaG5ds.jpg",
     quote: "Seeking justice, is just another name for revenge"
   },
   {
     name: "Tyler Durden",
+    image: "http://orig00.deviantart.net/b2ac/f/2015/142/0/4/tyler_durden_by_zhenfeng91-d78zlv2.jpg",
     quote: "You're not your fucking Kakis"
   }
 ];
