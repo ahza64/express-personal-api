@@ -55,7 +55,7 @@ app.get('/', function homepage(req, res) {
  });
 
  app.get('/api/quotes', function findQuote(req, res){
-   db.Quote.find().exec(function(err, quotetaco){
+   db.Quote.find(function(err, quotetaco){
      res.json(quotetaco);
    });
  });
@@ -72,6 +72,19 @@ app.get('/', function homepage(req, res) {
    });
  });
 
+ //app.put('/api/quotes/:id', function putQuote());
+
+ //app.delete('/api/quotes/:id', function putQuote());
+ app.delete('/api/quotes/:id', function (req, res) {
+  // get book id from url params (`req.params`)
+  console.log('quotes delete', req.params);
+  var quoteId = req.params.id;
+  // find the index of the book we want to remove
+  db.Quote.findOneAndRemove({ _id: quoteId }, function (err, deletedQuote) {
+    res.json(deletedQuote);
+  });
+});
+
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
@@ -85,7 +98,9 @@ app.get('/api', function api_index(req, res) {
       {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"}, // CHANGE ME
       {method: "GET", path: "/api/currentCity", description: "Where I live"},
       {method: "GET", path: "/api/quotes", description: "get all quotes"},
-      {method: "POST", path: "/api/quotes", description: "add a quote"}
+      {method: "POST", path: "/api/quotes", description: "add a quote"},
+      {method: "PUT", path: "/api/quotes/:id", description: "update quote info"},
+      {method: "DELETE", path: "/api/quotes/:id", description: "Delete a quote"}
     ]
   });
 });

@@ -11,7 +11,7 @@ db.Campsite.create(new_campsite, function(err, campsite){
   }
 
   console.log("Created new campsite", campsite._id);
-  process.exit(); // we're all done! Exit the program.
+  // process.exit(); // we're all done! Exit the program.
 });
 
 
@@ -48,7 +48,7 @@ var new_profile = [
      return console.log("Error: " + err);
    }
    console.log("Created new profile", profile._id);
-   proccess.exit();
+  //  proccess.exit();
  });
 
 
@@ -56,14 +56,14 @@ var new_profile = [
 
 var newQuotes = [
   {
+    name: "Ghandi",
+    //date: "",
+    quote: "An eye for an eye will leave the world blind"
+  },
+  {
     name: "Justin",
     //date: "",
     quote: "Seeking justice, is just another name for revenge"
-  },
-  {
-    name: "Ghandi",
-    //date: "",
-    quote: "an eye for an eye will leave the world blind"
   },
   {
     name: "Tyler Durden",
@@ -71,9 +71,9 @@ var newQuotes = [
   }
 ];
 
-db.Quotes.remove({}, function(err, removed){
+db.Quote.remove({}, function(err, removed){
   console.log("removed all quotes db");
-  db.Quotes.create(newQuotes, function(err, quote){
+  db.Quote.create(newQuotes, function(err, quote){
     if (err){
       return console.log("quotes data error " + err);
     }

@@ -72,6 +72,31 @@ $('#newQuoteForm').on('submit', function(e){
     console.log("newQuoteError " + err);
   }
 
+  $quotesList.on('click', '.deleteBtn', function() {
+    console.log('clicked delete button to', '/api/quotes/'+$(this).attr('data-id'));
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/quotes/'+$(this).attr('data-id'),
+      success: deleteQuoteSuccess,
+      error: deleteQuoteError
+    });
+  });
+
+  function deleteQuoteSuccess(json){
+    console.log(json);
+    for(var t = 0; t < allQuotes.length; t++){
+      if(allQuotes[t]._id === json._id) {
+        allQuotes.splice(t, 1);
+        break;
+      }
+    }
+    render();
+  }
+
+  function deleteQuoteError(err){
+    console.log(err);
+  }
+
   function render() {
     // empty existing posts from view
     $quotesList.empty();
