@@ -8,7 +8,7 @@ var allQuotes = [];
 $(document).ready(function(){
 
   $quotesList = $('#quotesTarget');
-  
+
   var source = $('#quotesTemplate').html();
   template = Handlebars.compile(source);
 
@@ -48,7 +48,7 @@ $(document).ready(function(){
   function handleQuotesError(err){
     console.log("handleQuotesError " + err);
   }
-//................testing^
+//...............testing^
 
 //adding/listing quote
 $('#newQuoteForm').on('submit', function(e){
