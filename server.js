@@ -86,21 +86,21 @@ app.get('/', function homepage(req, res) {
 });
 
 app.get('/api', function api_index(req, res) {
-  // TODO: Document all your api endpoints below
+  // TODO: Document all api endpoints below
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: false, // CHANGE ME ;)
+    document_endpoints: true,
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
-    base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    documentation_url: "https://github.com/ahza64/express-personal-api/README.md",
+    base_url: "http://pumpkin-tart-45951.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"}, // CHANGE ME
-      {method: "GET", path: "/api/currentCity", description: "Where I live"},
+      {method: "GET", path: "/api/profile", description: "Data about me"}, 
+      // {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"}, // CHANGE ME
+      // {method: "GET", path: "/api/currentCity", description: "Where I live"},
       {method: "GET", path: "/api/quotes", description: "get all quotes"},
       {method: "POST", path: "/api/quotes", description: "add a quote"},
       //{method: "PUT", path: "/api/quotes/:id", description: "update quote info"},
-      {method: "DELETE", path: "/api/quotes/:id", description: "Delete a quote"}
+      {method: "DELETE", path: "/api/quotes/:id", description: "delete a quote"}
     ]
   });
 });

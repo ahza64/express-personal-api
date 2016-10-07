@@ -8,6 +8,7 @@ var allQuotes = [];
 $(document).ready(function(){
 
   $quotesList = $('#quotesTarget');
+  
   var source = $('#quotesTemplate').html();
   template = Handlebars.compile(source);
 
