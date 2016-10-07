@@ -2,11 +2,9 @@ body {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 18px;
-  /*background-color: skyblue; /* Sanity Check! */
   background-image: url("http://i.imgur.com/F7rBHZa.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  /*background-blend-mode: multiply;*/
   color: white;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
